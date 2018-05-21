@@ -5,8 +5,52 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_Teretana"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="Teretana" Height="350" Width="605">
     <Grid>
-        
+        <DataGrid Name="dataGridCentralni" HorizontalAlignment="Center" VerticalAlignment="Center"
+                  Height="auto" Width="auto" AlternatingRowBackground="Aqua" IsReadOnly="True" CanUserAddRows="False" SelectionUnit="FullRow" SelectionMode="Single"/>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Width="auto" Height="30" Orientation="Horizontal">
+            <Button Name="btnClanovi" Content="Članovi" Height="30" Width="75" VerticalAlignment="Top" HorizontalAlignment="Left" Click="btnClanovi_Click"/>
+            <Button Name="btnKorisnici" Content="Korisnici" Height="30" Width="75" VerticalAlignment="Top" HorizontalAlignment="Left" Click="btnKorisnici_Click"/>
+            <Button Name="btnTreneri" Content="Treneri" Height="30" Width="75" VerticalAlignment="Top" HorizontalAlignment="Left" Click="btnTreneri_Click"/>
+            <Button Name="btnTermini" Content="Termin" Height="30" Width="75" VerticalAlignment="Top" HorizontalAlignment="Left" Click="btnTermini_Click"/>
+            <Button Name="btnTreninzi" Content="Treninzi" Height="30" Width="75" VerticalAlignment="Top" HorizontalAlignment="Left" Click="btnTreninzi_Click"/>
+            <Button Name="btnVrsteTreninga" Content="Vrste treninga" Height="30" Width="80" VerticalAlignment="Top" HorizontalAlignment="Left" Click="btnVrsteTreninga_Click"/>
+            <Button Name="btnSprave" Content="Sprave" Height="30" Width="75" VerticalAlignment="Top" HorizontalAlignment="Left" Click="btnSprave_Click"/>
+            <Button Name="btnRegistracije" Content="Registracije" Height="30" Width="75" VerticalAlignment="Top" HorizontalAlignment="Left" Click="btnRegistracije_Click"/>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="605" Height="30" Orientation="Horizontal">
+            <Button Name="btnDodajClana" BorderThickness="0" Content="Dodaj člana" Width="201" Click="btnDodajClana_Click"/>
+            <Button Name="btnIzmeniClana" BorderThickness="0" Content="Izmeni člana" Width="201" Click="btnIzmeniClana_Click"/>
+            <Button Name="btnObrisiClana" BorderThickness="0" Content="Obriši člana" Width="201" Click="btnObrisiClana_Click"/>
+
+            <Button Name="btnDodajKorisnika" BorderThickness="0" Content="Dodaj korisnika" Width="201" Click="btnDodajKorisnika_Click"/>
+            <Button Name="btnIzmeniKorisnika" BorderThickness="0" Content="Izmeni korisnika" Width="201" Click="btnIzmeniKorisnika_Click"/>
+            <Button Name="btnObrisiKorisnika" BorderThickness="0" Content="Obriši korisnika" Width="201" Click="btnObrisiKorisnika_Click"/>
+
+            <Button Name="btnDodajTrenera" BorderThickness="0" Content="Dodaj trenera" Width="201" Click="btnDodajTrenera_Click"/>
+            <Button Name="btnIzmeniTrenera" BorderThickness="0" Content="Izmeni trenera" Width="201" Click="btnIzmeniTrenera_Click"/>
+            <Button Name="btnObrisiTrenera" BorderThickness="0" Content="Obriši trenara" Width="201" Click="btnObrisiTrenera_Click"/>
+
+            <Button Name="btnDodajTermin" BorderThickness="0" Content="Dodaj termin" Width="201" Click="btnDodajTermin_Click"/>
+            <Button Name="btnIzmeniTermin" BorderThickness="0" Content="Izmeni termin" Width="201" Click="btnIzmeniTermin_Click"/>
+            <Button Name="btnObrisiTermin" BorderThickness="0" Content="Obriši termin" Width="201" Click="btnObrisiTermin_Click"/>
+
+            <Button Name="btnDodajTrening" BorderThickness="0" Content="Dodaj trening" Width="201" Click="btnDodajTrening_Click"/>
+            <Button Name="btnIzmeniTrening" BorderThickness="0" Content="Izmeni trening" Width="201" Click="btnIzmeniTrening_Click"/>
+            <Button Name="btnObrisiTrening" BorderThickness="0" Content="Obriši trening" Width="201" Click="btnObrisiTrening_Click"/>
+
+            <Button Name="btnDodajVrstuTreninga" BorderThickness="0" Content="Dodaj vrstu treninga" Width="201" Click="btnDodajVrstuTreninga_Click"/>
+            <Button Name="btnIzmeniVrstuTreninga" BorderThickness="0" Content="Izmeni vrstu treninga" Width="201" Click="btnIzmeniVrstuTreninga_Click"/>
+            <Button Name="btnObrisiVrstuTreninga" BorderThickness="0" Content="Obriši vrstu treninga" Width="201" Click="btnObrisiVrstuTreninga_Click"/>
+
+            <Button Name="btnDodajSpravu" BorderThickness="0" Content="Dodaj spravu" Width="201" Click="btnDodajSpravu_Click"/>
+            <Button Name="btnIzmeniSpravu" BorderThickness="0" Content="Izmeni spravu" Width="201" Click="btnIzmeniSpravu_Click"/>
+            <Button Name="btnObrisiSpravu" BorderThickness="0" Content="Obriši spravu" Width="201" Click="btnObrisiSpravu_Click"/>
+
+            <Button Name="btnDodajRegistraciju" BorderThickness="0" Content="Dodaj registraciju" Width="201" Click="btnDodajRegistraciju_Click"/>
+            <Button Name="btnIzmeniRegistraciju" BorderThickness="0" Content="Izmeni registraciju" Width="201" Click="btnIzmeniRegistraciju_Click"/>
+            <Button Name="btnObrisiRegistraciju" BorderThickness="0" Content="Obriši registraciju" Width="201" Click="btnObrisiRegistraciju_Click"/>
+        </StackPanel>
     </Grid>
 </Window>

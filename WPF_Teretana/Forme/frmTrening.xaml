@@ -1,0 +1,30 @@
+﻿<Window x:Class="WPF_Teretana.Forme.frmTrening"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_Teretana.Forme"
+        mc:Ignorable="d"
+        Title="Dodaj / izmeni Trening" Height="300" Width="300">
+    <Grid>
+        <Label Content="Datum:" HorizontalAlignment="Left" Margin="34,18,0,0" VerticalAlignment="Top"/>
+        <DatePicker Name="dpDatumTrening" HorizontalAlignment="Left" Margin="130,18,0,0" VerticalAlignment="Top" Height="26" Width="120"/>
+
+        <Label Content="Član:" HorizontalAlignment="Left" Margin="34,49,0,0" VerticalAlignment="Top"/>
+        <ComboBox Name="cbClanTrening" HorizontalAlignment="Left" Margin="130,49,0,0" VerticalAlignment="Top" Width="131" DisplayMemberPath="Clan" SelectedValuePath="ClanID"/>
+
+        <Label Content="Termin:" HorizontalAlignment="Left" Margin="34,80,0,0" VerticalAlignment="Top"/>
+        <ComboBox Name="cbTerminTrening" HorizontalAlignment="Left" Margin="130,80,0,0" VerticalAlignment="Top" Width="131" DisplayMemberPath="Trajanje" SelectedValuePath="TerminID"/>
+
+        <Label Content="Trener:" HorizontalAlignment="Left" Margin="34,111,0,0" VerticalAlignment="Top"/>
+        <ComboBox Name="cbTrenerTrening" HorizontalAlignment="Left" Margin="130,111,0,0" VerticalAlignment="Top" Width="131" DisplayMemberPath="Trener" SelectedValuePath="TrenerID"/>
+
+        <Label Content="Vrsta treninga:" HorizontalAlignment="Left" Margin="34,142,0,0" VerticalAlignment="Top"/>
+        <ComboBox Name="cbVrstaTreningaTrening" HorizontalAlignment="Left" Margin="130,142,0,0" VerticalAlignment="Top" Width="131" DisplayMemberPath="NazivVrsteTreninga" SelectedValuePath="VrstaTreningaID"/>
+
+
+        <Button Name="btnSacuvaj" Content="Sačuvaj" HorizontalAlignment="Left" Margin="44,242,0,0" VerticalAlignment="Top" Width="75" Click="btnSacuvaj_Click"/>
+        <Button Name="btnOtkazi" Content="Otkaži" HorizontalAlignment="Left" Margin="177,242,0,0" VerticalAlignment="Top" Width="75" Click="btnOtkazi_Click"/>
+
+    </Grid>
+</Window>

@@ -54,6 +54,38 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Forme\frmClan.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forme\frmKorisnik.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forme\frmRegistracija.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forme\frmSprava.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forme\frmTermin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forme\frmTrener.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forme\frmTrening.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forme\frmVrstaTreninga.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -62,6 +94,31 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Forme\frmClan.xaml.cs">
+      <DependentUpon>frmClan.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forme\frmKorisnik.xaml.cs">
+      <DependentUpon>frmKorisnik.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forme\frmRegistracija.xaml.cs">
+      <DependentUpon>frmRegistracija.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forme\frmSprava.xaml.cs">
+      <DependentUpon>frmSprava.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forme\frmTermin.xaml.cs">
+      <DependentUpon>frmTermin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forme\frmTrener.xaml.cs">
+      <DependentUpon>frmTrener.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forme\frmTrening.xaml.cs">
+      <DependentUpon>frmTrening.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forme\frmVrstaTreninga.xaml.cs">
+      <DependentUpon>frmVrstaTreninga.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Konekcija.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -93,5 +150,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

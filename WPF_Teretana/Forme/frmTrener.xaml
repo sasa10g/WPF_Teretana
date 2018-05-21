@@ -1,0 +1,42 @@
+﻿<Window x:Class="WPF_Teretana.Forme.frmTrener"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_Teretana.Forme"
+        mc:Ignorable="d"
+        Title="Dodaj / izmeni Trenera" Height="400" Width="300">
+    <Grid>
+        <Label Content="Ime:" HorizontalAlignment="Left" Margin="34,18,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="txtImeTrener" HorizontalAlignment="Left" Height="26" Margin="130,18,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="131"/>
+
+        <Label Content="Prezime:" HorizontalAlignment="Left" Margin="34,49,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="txtPrezimeTrener" HorizontalAlignment="Left" Height="26" Margin="130,49,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="131"/>
+
+        <Label Content="Datum rođenja:" HorizontalAlignment="Left" Margin="34,80,0,0" VerticalAlignment="Top"/>
+        <DatePicker Name="dpDatumTrener" HorizontalAlignment="Left" Margin="130,80,0,0" VerticalAlignment="Top" Height="26" Width="120"/>
+
+        <Label Content="JMBG:" HorizontalAlignment="Left" Margin="34,111,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="txtJMBGTrener" HorizontalAlignment="Left" Height="26" Margin="130,111,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="131"/>
+
+        <Label Content="Adresa:" HorizontalAlignment="Left" Margin="34,142,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="txtAdresaTrener" HorizontalAlignment="Left" Height="26" Margin="130,142,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="131"/>
+
+        <Label Content="Grad:" HorizontalAlignment="Left" Margin="34,173,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="txtGradTrener" HorizontalAlignment="Left" Height="26" Margin="130,173,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="131"/>
+
+        <Label Content="Kontakt:" HorizontalAlignment="Left" Margin="34,204,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="txtKontaktTrener" HorizontalAlignment="Left" Height="26" Margin="130,204,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="131"/>
+
+        <Label Content="Email:" HorizontalAlignment="Left" Margin="34,235,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="txtEmailTrener" HorizontalAlignment="Left" Height="26" Margin="130,235,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="131"/>
+
+        <Label Content="Vrsta treninga:" HorizontalAlignment="Left" Margin="34,266,0,0" VerticalAlignment="Top"/>
+        <ComboBox Name="cbVrstaTreningaTrener" HorizontalAlignment="Left" Margin="130,266,0,0" VerticalAlignment="Top" Width="131" DisplayMemberPath="NazivVrsteTreninga" SelectedValuePath="VrstaTreningaID"/>
+
+
+        <Button Name="btnSacuvaj" Content="Sačuvaj" HorizontalAlignment="Left" Margin="44,342,0,0" VerticalAlignment="Top" Width="75" Click="btnSacuvaj_Click"/>
+        <Button Name="btnOtkazi" Content="Otkaži" HorizontalAlignment="Left" Margin="177,342,0,0" VerticalAlignment="Top" Width="75" Click="btnOtkazi_Click"/>
+
+    </Grid>
+</Window>
