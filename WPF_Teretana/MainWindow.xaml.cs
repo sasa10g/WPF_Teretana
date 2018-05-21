@@ -477,49 +477,49 @@ namespace WPF_Teretana
         {
             frmKorisnik prozor = new frmKorisnik();
             prozor.ShowDialog();
-            PocetniDataGrid(dataGridCentralni);
+            btnKorisnici_Click(sender, e);
         }
 
         private void btnDodajTrenera_Click(object sender, RoutedEventArgs e)
         {
             frmTrener prozor = new frmTrener();
             prozor.ShowDialog();
-            PocetniDataGrid(dataGridCentralni);
+            btnTreneri_Click(sender, e);
         }
 
         private void btnDodajTermin_Click(object sender, RoutedEventArgs e)
         {
             frmTermin prozor = new frmTermin();
             prozor.ShowDialog();
-            PocetniDataGrid(dataGridCentralni);
+            btnTermini_Click(sender, e);
         }
 
         private void btnDodajTrening_Click(object sender, RoutedEventArgs e)
         {
             frmTrening prozor = new frmTrening();
             prozor.ShowDialog();
-            PocetniDataGrid(dataGridCentralni);
+            btnTreninzi_Click(sender, e);
         }
 
         private void btnDodajVrstuTreninga_Click(object sender, RoutedEventArgs e)
         {
             frmVrstaTreninga prozor = new frmVrstaTreninga();
             prozor.ShowDialog();
-            PocetniDataGrid(dataGridCentralni);
+            btnVrsteTreninga_Click(sender, e);
         }
 
         private void btnDodajSpravu_Click(object sender, RoutedEventArgs e)
         {
             frmSprava prozor = new frmSprava();
             prozor.ShowDialog();
-            PocetniDataGrid(dataGridCentralni);
+            btnSprave_Click(sender, e);
         }
 
         private void btnDodajRegistraciju_Click(object sender, RoutedEventArgs e)
         {
             frmRegistracija prozor = new frmRegistracija();
             prozor.ShowDialog();
-            PocetniDataGrid(dataGridCentralni);
+            btnRegistracije_Click(sender, e);
         }
 
         //IZMENA
