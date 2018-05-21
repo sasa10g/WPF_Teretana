@@ -787,7 +787,42 @@ namespace WPF_Teretana
 
         private void btnIzmeniRegistraciju_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                azuziraj = true;
+                frmRegistracija prozor = new frmRegistracija();
+                konekcija.Open();
 
+                DataRowView red = (DataRowView)dataGridCentralni.SelectedItems[0];
+
+                pomocni = red;
+
+                string upit = "SELECT * FROM tblRegistracija WHERE RegistracijaID =" + red["ID"];
+
+                SqlCommand komanda = new SqlCommand(upit, konekcija);
+
+                SqlDataReader citac = komanda.ExecuteReader();
+
+                while (citac.Read())
+                {
+                    //DatumR, KorisnikID, ClanID
+                    prozor.dpDatumRegistracija.Text = citac["DatumR"].ToString();
+                    prozor.cbKorisnikRegistracija.SelectedValue = citac["KorisnikID"].ToString();
+                    prozor.cbClanRegistracija.SelectedValue = citac["ClanID"].ToString();
+                }
+                prozor.ShowDialog();
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("Niste selektovali red", "Obavestenje", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            finally
+            {
+                if (konekcija != null)
+                    konekcija.Close();
+                PocetniDataGrid(dataGridCentralni);
+                azuziraj = false;
+            }
         }
 
         //BRISANJE
