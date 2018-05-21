@@ -161,9 +161,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="if_gym_512534.ico" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="icon_teretana.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

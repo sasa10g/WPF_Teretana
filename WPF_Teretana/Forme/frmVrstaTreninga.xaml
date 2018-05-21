@@ -13,9 +13,9 @@
         <Label Content="Sprava:" HorizontalAlignment="Left" Margin="34,49,0,0" VerticalAlignment="Top"/>
         <ComboBox Name="cbSpravaVrstaTreninga" HorizontalAlignment="Left" Margin="130,49,0,0" VerticalAlignment="Top" Width="131" DisplayMemberPath="NazivSprave" SelectedValuePath="SpravaID"/>
 
-
-        <Button Name="btnSacuvaj" Content="Sačuvaj" HorizontalAlignment="Left" Margin="44,142,0,0" VerticalAlignment="Top" Width="75" Click="btnSacuvaj_Click"/>
-        <Button Name="btnOtkazi" Content="Otkaži" HorizontalAlignment="Left" Margin="177,142,0,0" VerticalAlignment="Top" Width="75" Click="btnOtkazi_Click"/>
-
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="300" Height="30" Orientation="Horizontal">
+            <Button Name="btnSacuvaj" Background="#04D49C" Foreground="White" BorderThickness="0" Content="Sačuvaj" Width="150" Click="btnSacuvaj_Click"/>
+            <Button Name="btnOtkazi" Background="#04D49C" Foreground="White" BorderThickness="0" Content="Otkaži" Width="150" Click="btnOtkazi_Click"/>
+        </StackPanel>
     </Grid>
 </Window>

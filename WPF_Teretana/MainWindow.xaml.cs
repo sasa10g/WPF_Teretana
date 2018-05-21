@@ -56,6 +56,7 @@ namespace WPF_Teretana
             PocetniDataGrid(dataGridCentralni);
         }
 
+        //PRIKAZ
         private void btnClanovi_Click(object sender, RoutedEventArgs e)
         {
             btnDodajClana.Visibility = Visibility.Visible;
