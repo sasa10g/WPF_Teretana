@@ -52,11 +52,26 @@ namespace WPF_Teretana.Forme
             {
                 konekcija.Open();
 
-                string insert = @"INSERT INTO tblVrstaTreninga(NazivVrsteTreninga, SpravaID)
+                if (MainWindow.azuziraj)
+                {
+                    DataRowView red = (DataRowView)MainWindow.pomocni;
+
+                    string upit = @"UPDATE tblVrstaTreninga
+                            SET NazivVrsteTreninga='" + txtNazivVrstaTreninga.Text + "', SpravaID=" + cbSpravaVrstaTreninga.SelectedValue + " Where VrstaTreningaID=" + red["ID"];
+
+                    SqlCommand komanda = new SqlCommand(upit, konekcija);
+                    komanda.ExecuteNonQuery();
+                    MainWindow.pomocni = null;
+                    this.Close();
+                }
+                else
+                {
+                    string insert = @"INSERT INTO tblVrstaTreninga(NazivVrsteTreninga, SpravaID)
 	                            VALUES('" + txtNazivVrstaTreninga.Text + "', '" + cbSpravaVrstaTreninga.SelectedValue + "');";
-                SqlCommand cmd = new SqlCommand(insert, konekcija);
-                cmd.ExecuteNonQuery();
-                this.Close();
+                    SqlCommand cmd = new SqlCommand(insert, konekcija);
+                    cmd.ExecuteNonQuery();
+                    this.Close();
+                }
             }
             catch (SqlException)
             {
