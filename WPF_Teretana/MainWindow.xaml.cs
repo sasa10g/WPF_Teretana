@@ -704,7 +704,44 @@ namespace WPF_Teretana
 
         private void btnIzmeniTrening_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                azuziraj = true;
+                frmTrening prozor = new frmTrening();
+                konekcija.Open();
 
+                DataRowView red = (DataRowView)dataGridCentralni.SelectedItems[0];
+
+                pomocni = red;
+
+                string upit = "SELECT * FROM tblTrening WHERE TreningID =" + red["ID"];
+
+                SqlCommand komanda = new SqlCommand(upit, konekcija);
+
+                SqlDataReader citac = komanda.ExecuteReader();
+
+                while (citac.Read())
+                {
+                    //DatumT, ClanID, TerminID, TrenerID, VrstaTreningaID
+                    prozor.dpDatumTrening.Text = citac["DatumT"].ToString();
+                    prozor.cbClanTrening.SelectedValue = citac["ClanID"].ToString();
+                    prozor.cbTerminTrening.SelectedValue = citac["TerminID"].ToString();
+                    prozor.cbTrenerTrening.SelectedValue = citac["TrenerID"].ToString();
+                    prozor.cbVrstaTreningaTrening.SelectedValue = citac["VrstaTreningaID"].ToString();
+                }
+                prozor.ShowDialog();
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("Niste selektovali red", "Obavestenje", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            finally
+            {
+                if (konekcija != null)
+                    konekcija.Close();
+                PocetniDataGrid(dataGridCentralni);
+                azuziraj = false;
+            }
         }
 
         private void btnIzmeniVrstuTreninga_Click(object sender, RoutedEventArgs e)

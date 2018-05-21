@@ -73,11 +73,26 @@ namespace WPF_Teretana.Forme
             {
                 konekcija.Open();
 
-                string insert = @"INSERT INTO tblTrening(DatumT, ClanID, TerminID, TrenerID, VrstaTreningaID)
+                if (MainWindow.azuziraj)
+                {
+                    DataRowView red = (DataRowView)MainWindow.pomocni;
+
+                    string upit = @"UPDATE tblTrening
+                            SET DatumT='" + dpDatumTrening.SelectedDate + "', ClanID=" + cbClanTrening.SelectedValue + ", TerminID=" + cbTerminTrening.SelectedValue + ", TrenerID=" + cbTrenerTrening.SelectedValue + ", VrstaTreningaID=" + cbVrstaTreningaTrening.SelectedValue + " Where TreningID=" + red["ID"];
+
+                    SqlCommand komanda = new SqlCommand(upit, konekcija);
+                    komanda.ExecuteNonQuery();
+                    MainWindow.pomocni = null;
+                    this.Close();
+                }
+                else
+                {
+                    string insert = @"INSERT INTO tblTrening(DatumT, ClanID, TerminID, TrenerID, VrstaTreningaID)
 	                            VALUES('" + dpDatumTrening.SelectedDate + "', " + cbClanTrening.SelectedValue + ", " + cbTerminTrening.SelectedValue + ", " + cbTrenerTrening.SelectedValue + ", " + cbVrstaTreningaTrening.SelectedValue + ");";
-                SqlCommand cmd = new SqlCommand(insert, konekcija);
-                cmd.ExecuteNonQuery();
-                this.Close();
+                    SqlCommand cmd = new SqlCommand(insert, konekcija);
+                    cmd.ExecuteNonQuery();
+                    this.Close();
+                }
             }
             catch (SqlException)
             {
