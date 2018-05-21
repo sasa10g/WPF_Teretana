@@ -611,7 +611,7 @@ namespace WPF_Teretana
             {
                 if (konekcija != null)
                     konekcija.Close();
-                PocetniDataGrid(dataGridCentralni);
+                btnKorisnici_Click(sender, e);
                 azuziraj = false;
             }
         }
@@ -657,7 +657,7 @@ namespace WPF_Teretana
             {
                 if (konekcija != null)
                     konekcija.Close();
-                PocetniDataGrid(dataGridCentralni);
+                btnTreneri_Click(sender, e);
                 azuziraj = false;
             }
         }
@@ -697,7 +697,7 @@ namespace WPF_Teretana
             {
                 if (konekcija != null)
                     konekcija.Close();
-                PocetniDataGrid(dataGridCentralni);
+                btnTermini_Click(sender, e);
                 azuziraj = false;
             }
         }
@@ -739,7 +739,7 @@ namespace WPF_Teretana
             {
                 if (konekcija != null)
                     konekcija.Close();
-                PocetniDataGrid(dataGridCentralni);
+                btnTreninzi_Click(sender, e);
                 azuziraj = false;
             }
         }
@@ -778,7 +778,7 @@ namespace WPF_Teretana
             {
                 if (konekcija != null)
                     konekcija.Close();
-                PocetniDataGrid(dataGridCentralni);
+                btnVrsteTreninga_Click(sender, e);
                 azuziraj = false;
             }
         }
@@ -817,7 +817,7 @@ namespace WPF_Teretana
             {
                 if (konekcija != null)
                     konekcija.Close();
-                PocetniDataGrid(dataGridCentralni);
+                btnSprave_Click(sender, e);
                 azuziraj = false;
             }
         }
@@ -857,7 +857,7 @@ namespace WPF_Teretana
             {
                 if (konekcija != null)
                     konekcija.Close();
-                PocetniDataGrid(dataGridCentralni);
+                btnRegistracije_Click(sender, e);
                 azuziraj = false;
             }
         }
