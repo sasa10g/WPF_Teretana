@@ -866,42 +866,290 @@ namespace WPF_Teretana
 
         private void btnObrisiClana_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                konekcija.Open();
 
+                DataRowView red = (DataRowView)dataGridCentralni.SelectedItems[0];
+
+                string upit = @"DELETE FROM tblClan WHERE ClanID=" + red["ID"];
+
+                MessageBoxResult rezultat = MessageBox.Show("Da li ste sigurni?", "Upozorenje", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+                if (rezultat == MessageBoxResult.Yes)
+                {
+                    SqlCommand komanda = new SqlCommand(upit, konekcija);
+                    komanda.ExecuteNonQuery();
+                }
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("Niste selektovali red", "Obavestenje", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Postoje povezani podaci u drugim tabelama", "Obavestenje", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            finally
+            {
+                if (konekcija != null)
+                {
+                    konekcija.Close();
+                }
+                PocetniDataGrid(dataGridCentralni);
+            }
         }
 
         private void btnObrisiKorisnika_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                konekcija.Open();
 
+                DataRowView red = (DataRowView)dataGridCentralni.SelectedItems[0];
+
+                string upit = @"DELETE FROM tblKorisnik WHERE KorisnikID=" + red["ID"];
+
+                MessageBoxResult rezultat = MessageBox.Show("Da li ste sigurni?", "Upozorenje", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+                if (rezultat == MessageBoxResult.Yes)
+                {
+                    SqlCommand komanda = new SqlCommand(upit, konekcija);
+                    komanda.ExecuteNonQuery();
+                }
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("Niste selektovali red", "Obavestenje", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Postoje povezani podaci u drugim tabelama", "Obavestenje", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            finally
+            {
+                if (konekcija != null)
+                {
+                    konekcija.Close();
+                }
+                btnKorisnici_Click(sender, e);
+            }
         }
 
         private void btnObrisiTrenera_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                konekcija.Open();
 
+                DataRowView red = (DataRowView)dataGridCentralni.SelectedItems[0];
+
+                string upit = @"DELETE FROM tblTrener WHERE TrenerID=" + red["ID"];
+
+                MessageBoxResult rezultat = MessageBox.Show("Da li ste sigurni?", "Upozorenje", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+                if (rezultat == MessageBoxResult.Yes)
+                {
+                    SqlCommand komanda = new SqlCommand(upit, konekcija);
+                    komanda.ExecuteNonQuery();
+                }
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("Niste selektovali red", "Obavestenje", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Postoje povezani podaci u drugim tabelama", "Obavestenje", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            finally
+            {
+                if (konekcija != null)
+                {
+                    konekcija.Close();
+                }
+                btnTreneri_Click(sender, e);
+            }
         }
 
         private void btnObrisiTermin_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                konekcija.Open();
 
+                DataRowView red = (DataRowView)dataGridCentralni.SelectedItems[0];
+
+                string upit = @"DELETE FROM tblTermin WHERE TerminID=" + red["ID"];
+
+                MessageBoxResult rezultat = MessageBox.Show("Da li ste sigurni?", "Upozorenje", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+                if (rezultat == MessageBoxResult.Yes)
+                {
+                    SqlCommand komanda = new SqlCommand(upit, konekcija);
+                    komanda.ExecuteNonQuery();
+                }
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("Niste selektovali red", "Obavestenje", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Postoje povezani podaci u drugim tabelama", "Obavestenje", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            finally
+            {
+                if (konekcija != null)
+                {
+                    konekcija.Close();
+                }
+                btnTermini_Click(sender, e);
+            }
         }
 
         private void btnObrisiTrening_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                konekcija.Open();
 
+                DataRowView red = (DataRowView)dataGridCentralni.SelectedItems[0];
+
+                string upit = @"DELETE FROM tblTrening WHERE TreningID=" + red["ID"];
+
+                MessageBoxResult rezultat = MessageBox.Show("Da li ste sigurni?", "Upozorenje", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+                if (rezultat == MessageBoxResult.Yes)
+                {
+                    SqlCommand komanda = new SqlCommand(upit, konekcija);
+                    komanda.ExecuteNonQuery();
+                }
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("Niste selektovali red", "Obavestenje", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Postoje povezani podaci u drugim tabelama", "Obavestenje", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            finally
+            {
+                if (konekcija != null)
+                {
+                    konekcija.Close();
+                }
+                btnTreninzi_Click(sender, e);
+            }
         }
 
         private void btnObrisiVrstuTreninga_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                konekcija.Open();
 
+                DataRowView red = (DataRowView)dataGridCentralni.SelectedItems[0];
+
+                string upit = @"DELETE FROM tblVrstaTreninga WHERE VrstaTreningaID=" + red["ID"];
+
+                MessageBoxResult rezultat = MessageBox.Show("Da li ste sigurni?", "Upozorenje", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+                if (rezultat == MessageBoxResult.Yes)
+                {
+                    SqlCommand komanda = new SqlCommand(upit, konekcija);
+                    komanda.ExecuteNonQuery();
+                }
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("Niste selektovali red", "Obavestenje", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Postoje povezani podaci u drugim tabelama", "Obavestenje", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            finally
+            {
+                if (konekcija != null)
+                {
+                    konekcija.Close();
+                }
+                btnVrsteTreninga_Click(sender, e);
+            }
         }
 
         private void btnObrisiSpravu_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                konekcija.Open();
 
+                DataRowView red = (DataRowView)dataGridCentralni.SelectedItems[0];
+
+                string upit = @"DELETE FROM tblSprava WHERE SpravaID=" + red["ID"];
+
+                MessageBoxResult rezultat = MessageBox.Show("Da li ste sigurni?", "Upozorenje", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+                if (rezultat == MessageBoxResult.Yes)
+                {
+                    SqlCommand komanda = new SqlCommand(upit, konekcija);
+                    komanda.ExecuteNonQuery();
+                }
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("Niste selektovali red", "Obavestenje", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Postoje povezani podaci u drugim tabelama", "Obavestenje", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            finally
+            {
+                if (konekcija != null)
+                {
+                    konekcija.Close();
+                }
+                btnSprave_Click(sender, e);
+            }
         }
 
         private void btnObrisiRegistraciju_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                konekcija.Open();
 
+                DataRowView red = (DataRowView)dataGridCentralni.SelectedItems[0];
+
+                string upit = @"DELETE FROM tblRegistracija WHERE RegistracijaID=" + red["ID"];
+
+                MessageBoxResult rezultat = MessageBox.Show("Da li ste sigurni?", "Upozorenje", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+                if (rezultat == MessageBoxResult.Yes)
+                {
+                    SqlCommand komanda = new SqlCommand(upit, konekcija);
+                    komanda.ExecuteNonQuery();
+                }
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("Niste selektovali red", "Obavestenje", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Postoje povezani podaci u drugim tabelama", "Obavestenje", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            finally
+            {
+                if (konekcija != null)
+                {
+                    konekcija.Close();
+                }
+                btnRegistracije_Click(sender, e);
+            }
         }
     }
 }
