@@ -618,7 +618,48 @@ namespace WPF_Teretana
 
         private void btnIzmeniTrenera_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                azuziraj = true;
+                frmTrener prozor = new frmTrener();
+                konekcija.Open();
 
+                DataRowView red = (DataRowView)dataGridCentralni.SelectedItems[0];
+
+                pomocni = red;
+
+                string upit = "SELECT * FROM tblTrener WHERE TrenerID =" + red["ID"];
+
+                SqlCommand komanda = new SqlCommand(upit, konekcija);
+
+                SqlDataReader citac = komanda.ExecuteReader();
+
+                while (citac.Read())
+                {
+                    //ImeT, PrezimeT, DatumRodjenjaT, JMBGT, AdresaT, GradT, KontaktT, EmailT, VrstaTreningaID
+                    prozor.txtImeTrener.Text = citac["ImeT"].ToString();
+                    prozor.txtPrezimeTrener.Text = citac["PrezimeT"].ToString();
+                    prozor.dpDatumTrener.Text = citac["DatumRodjenjaT"].ToString();
+                    prozor.txtJMBGTrener.Text = citac["JMBGT"].ToString();
+                    prozor.txtAdresaTrener.Text = citac["AdresaT"].ToString();
+                    prozor.txtGradTrener.Text = citac["GradT"].ToString();
+                    prozor.txtKontaktTrener.Text = citac["KontaktT"].ToString();
+                    prozor.txtEmailTrener.Text = citac["EmailT"].ToString();
+                    prozor.cbVrstaTreningaTrener.SelectedValue = citac["VrstaTreningaID"].ToString();
+                }
+                prozor.ShowDialog();
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("Niste selektovali red", "Obavestenje", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            finally
+            {
+                if (konekcija != null)
+                    konekcija.Close();
+                PocetniDataGrid(dataGridCentralni);
+                azuziraj = false;
+            }
         }
 
         private void btnIzmeniTermin_Click(object sender, RoutedEventArgs e)

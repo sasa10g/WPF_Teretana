@@ -52,11 +52,26 @@ namespace WPF_Teretana.Forme
             {
                 konekcija.Open();
 
-                string insert = @"INSERT INTO tblTrener(ImeT, PrezimeT, DatumRodjenjaT, JMBGT, AdresaT, GradT, KontaktT, EmailT, VrstaTreningaID)
+                if (MainWindow.azuziraj)
+                {
+                    DataRowView red = (DataRowView)MainWindow.pomocni;
+
+                    string upit = @"UPDATE tblTrener 
+                            SET ImeT='" + txtImeTrener.Text + "', PrezimeT='" + txtPrezimeTrener.Text + "',DatumRodjenjaT='" + dpDatumTrener.SelectedDate + "', JMBGT='" + txtJMBGTrener.Text + "', AdresaT='" + txtAdresaTrener.Text + "', GradT='" + txtGradTrener.Text + "', KontaktT='" + txtKontaktTrener.Text + "', EmailT='" + txtEmailTrener.Text + "', VrstaTreningaID= " + cbVrstaTreningaTrener.SelectedValue + " Where TrenerID=" + red["ID"];
+
+                    SqlCommand komanda = new SqlCommand(upit, konekcija);
+                    komanda.ExecuteNonQuery();
+                    MainWindow.pomocni = null;
+                    this.Close();
+                }
+                else
+                {
+                    string insert = @"INSERT INTO tblTrener(ImeT, PrezimeT, DatumRodjenjaT, JMBGT, AdresaT, GradT, KontaktT, EmailT, VrstaTreningaID)
 	                            VALUES('" + txtImeTrener.Text + "', '" + txtPrezimeTrener.Text + "', '" + dpDatumTrener.SelectedDate + "', '" + txtJMBGTrener.Text + "', '" + txtAdresaTrener.Text + "', '" + txtGradTrener.Text + "', '" + txtKontaktTrener.Text + "', '" + txtEmailTrener.Text + "', '" + cbVrstaTreningaTrener.SelectedValue + "');";
-                SqlCommand cmd = new SqlCommand(insert, konekcija);
-                cmd.ExecuteNonQuery();
-                this.Close();
+                    SqlCommand cmd = new SqlCommand(insert, konekcija);
+                    cmd.ExecuteNonQuery();
+                    this.Close();
+                }
             }
             catch (SqlException)
             {
