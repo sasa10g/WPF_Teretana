@@ -10,14 +10,14 @@
         <DataGrid Name="dataGridCentralni" HorizontalAlignment="Center" VerticalAlignment="Center"
                   Height="auto" Width="auto" AlternatingRowBackground="Aqua" IsReadOnly="True" CanUserAddRows="False" SelectionUnit="FullRow" SelectionMode="Single"/>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Width="auto" Height="30" Orientation="Horizontal">
-            <Button Name="btnClanovi" Content="Članovi" Height="30" Width="75" VerticalAlignment="Top" HorizontalAlignment="Left" Click="btnClanovi_Click"/>
-            <Button Name="btnKorisnici" Content="Korisnici" Height="30" Width="75" VerticalAlignment="Top" HorizontalAlignment="Left" Click="btnKorisnici_Click"/>
-            <Button Name="btnTreneri" Content="Treneri" Height="30" Width="75" VerticalAlignment="Top" HorizontalAlignment="Left" Click="btnTreneri_Click"/>
-            <Button Name="btnTermini" Content="Termin" Height="30" Width="75" VerticalAlignment="Top" HorizontalAlignment="Left" Click="btnTermini_Click"/>
-            <Button Name="btnTreninzi" Content="Treninzi" Height="30" Width="75" VerticalAlignment="Top" HorizontalAlignment="Left" Click="btnTreninzi_Click"/>
-            <Button Name="btnVrsteTreninga" Content="Vrste treninga" Height="30" Width="80" VerticalAlignment="Top" HorizontalAlignment="Left" Click="btnVrsteTreninga_Click"/>
-            <Button Name="btnSprave" Content="Sprave" Height="30" Width="75" VerticalAlignment="Top" HorizontalAlignment="Left" Click="btnSprave_Click"/>
-            <Button Name="btnRegistracije" Content="Registracije" Height="30" Width="75" VerticalAlignment="Top" HorizontalAlignment="Left" Click="btnRegistracije_Click"/>
+            <Button Name="btnClanovi" Content="Članovi" BorderThickness="0" Height="30" Width="75" VerticalAlignment="Top" HorizontalAlignment="Left" Click="btnClanovi_Click"/>
+            <Button Name="btnKorisnici" Content="Korisnici" BorderThickness="0" Height="30" Width="75" VerticalAlignment="Top" HorizontalAlignment="Left" Click="btnKorisnici_Click"/>
+            <Button Name="btnTreneri" Content="Treneri" BorderThickness="0" Height="30" Width="75" VerticalAlignment="Top" HorizontalAlignment="Left" Click="btnTreneri_Click"/>
+            <Button Name="btnTermini" Content="Termin" BorderThickness="0" Height="30" Width="75" VerticalAlignment="Top" HorizontalAlignment="Left" Click="btnTermini_Click"/>
+            <Button Name="btnTreninzi" Content="Treninzi" BorderThickness="0" Height="30" Width="75" VerticalAlignment="Top" HorizontalAlignment="Left" Click="btnTreninzi_Click"/>
+            <Button Name="btnVrsteTreninga" Content="Vrste treninga" BorderThickness="0" Height="30" Width="80" VerticalAlignment="Top" HorizontalAlignment="Left" Click="btnVrsteTreninga_Click"/>
+            <Button Name="btnSprave" Content="Sprave" BorderThickness="0" Height="30" Width="75" VerticalAlignment="Top" HorizontalAlignment="Left" Click="btnSprave_Click"/>
+            <Button Name="btnRegistracije" Content="Registracije" BorderThickness="0" Height="30" Width="75" VerticalAlignment="Top" HorizontalAlignment="Left" Click="btnRegistracije_Click"/>
         </StackPanel>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="605" Height="30" Orientation="Horizontal">
             <Button Name="btnDodajClana" BorderThickness="0" Content="Dodaj člana" Width="201" Click="btnDodajClana_Click"/>

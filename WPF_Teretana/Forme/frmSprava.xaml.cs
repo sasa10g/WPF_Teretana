@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -33,11 +34,26 @@ namespace WPF_Teretana.Forme
             {
                 konekcija.Open();
 
-                string insert = @"INSERT INTO tblSprava(NazivSprave, Kolicina)
+                if (MainWindow.azuziraj)
+                {
+                    DataRowView red = (DataRowView)MainWindow.pomocni;
+
+                    string upit = @"UPDATE tblSprava
+                            SET NazivSprave='" + txtNazivSprava.Text + "', Kolicina='" + txtKolicinaSprava.Text + "' Where SpravaID=" + red["ID"];
+
+                    SqlCommand komanda = new SqlCommand(upit, konekcija);
+                    komanda.ExecuteNonQuery();
+                    MainWindow.pomocni = null;
+                    this.Close();
+                }
+                else
+                {
+                    string insert = @"INSERT INTO tblSprava(NazivSprave, Kolicina)
 	                            VALUES('" + txtNazivSprava.Text + "', '" + txtKolicinaSprava.Text + "');";
-                SqlCommand cmd = new SqlCommand(insert, konekcija);
-                cmd.ExecuteNonQuery();
-                this.Close();
+                    SqlCommand cmd = new SqlCommand(insert, konekcija);
+                    cmd.ExecuteNonQuery();
+                    this.Close();
+                }
             }
             catch (SqlException)
             {

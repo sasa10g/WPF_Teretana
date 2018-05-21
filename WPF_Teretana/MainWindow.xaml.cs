@@ -526,12 +526,94 @@ namespace WPF_Teretana
 
         private void btnIzmeniClana_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                azuziraj = true;
+                frmClan prozor = new frmClan();
+                konekcija.Open();
 
+                DataRowView red = (DataRowView)dataGridCentralni.SelectedItems[0];
+
+                pomocni = red;
+
+                string upit = "SELECT * FROM tblClan WHERE ClanID =" + red["ID"];
+
+                SqlCommand komanda = new SqlCommand(upit, konekcija);
+
+                SqlDataReader citac = komanda.ExecuteReader();
+
+                while (citac.Read())
+                {
+                    //ImeC, PrezimeC, DatumRodjenjaC, JMBGC, AdresaC, GradC, KontaktC, EmailC
+                    prozor.txtImeClan.Text = citac["ImeC"].ToString();
+                    prozor.txtPrezimeClan.Text = citac["PrezimeC"].ToString();
+                    prozor.dpDatumClan.Text = citac["DatumRodjenjaC"].ToString();
+                    prozor.txtJMBGClan.Text = citac["JMBGC"].ToString();
+                    prozor.txtAdresaClan.Text = citac["AdresaC"].ToString();
+                    prozor.txtGradClan.Text = citac["GradC"].ToString();
+                    prozor.txtKontaktClan.Text = citac["KontaktC"].ToString();
+                    prozor.txtEmailClan.Text = citac["EmailC"].ToString();
+                }
+                prozor.ShowDialog();
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("Niste selektovali red", "Obavestenje", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            finally
+            {
+                if (konekcija != null)
+                    konekcija.Close();
+                PocetniDataGrid(dataGridCentralni);
+                azuziraj = false;
+            }
         }
 
         private void btnIzmeniKorisnika_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                azuziraj = true;
+                frmKorisnik prozor = new frmKorisnik();
+                konekcija.Open();
 
+                DataRowView red = (DataRowView)dataGridCentralni.SelectedItems[0];
+
+                pomocni = red;
+
+                string upit = "SELECT * FROM tblKorisnik WHERE KorisnikID =" + red["ID"];
+
+                SqlCommand komanda = new SqlCommand(upit, konekcija);
+
+                SqlDataReader citac = komanda.ExecuteReader();
+
+                while (citac.Read())
+                {
+                    //ImeK, PrezimeK, DatumRodjenjaK, JMBGK, AdresaK, GradK, KontaktK, EmailK, KorisnickoIme, Lozinka
+                    prozor.txtImeKorisnik.Text = citac["ImeK"].ToString();
+                    prozor.txtPrezimeKorisnik.Text = citac["PrezimeK"].ToString();
+                    prozor.dpDatumKorisnik.Text = citac["DatumRodjenjaK"].ToString();
+                    prozor.txtJMBGKorisnik.Text = citac["JMBGK"].ToString();
+                    prozor.txtAdresaKorisnik.Text = citac["AdresaK"].ToString();
+                    prozor.txtGradKorisnik.Text = citac["GradK"].ToString();
+                    prozor.txtKontaktKorisnik.Text = citac["KontaktK"].ToString();
+                    prozor.txtEmailKorisnik.Text = citac["EmailK"].ToString();
+                    prozor.txtKorisnickoImeKorisnik.Text = citac["KorisnickoIme"].ToString();
+                    prozor.txtLozinkaKorisnik.Text = citac["Lozinka"].ToString();
+                }
+                prozor.ShowDialog();
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("Niste selektovali red", "Obavestenje", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            finally
+            {
+                if (konekcija != null)
+                    konekcija.Close();
+                PocetniDataGrid(dataGridCentralni);
+                azuziraj = false;
+            }
         }
 
         private void btnIzmeniTrenera_Click(object sender, RoutedEventArgs e)
@@ -541,7 +623,42 @@ namespace WPF_Teretana
 
         private void btnIzmeniTermin_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                azuziraj = true;
+                frmTermin prozor = new frmTermin();
+                konekcija.Open();
 
+                DataRowView red = (DataRowView)dataGridCentralni.SelectedItems[0];
+
+                pomocni = red;
+
+                string upit = "SELECT * FROM tblTermin WHERE TerminID =" + red["ID"];
+
+                SqlCommand komanda = new SqlCommand(upit, konekcija);
+
+                SqlDataReader citac = komanda.ExecuteReader();
+
+                while (citac.Read())
+                {
+                    //PocetakTermina, KrajTermina, Trajanje
+                    prozor.txtPocetakTermin.Text = citac["PocetakTermina"].ToString();
+                    prozor.txtKrajTermin.Text = citac["KrajTermina"].ToString();
+                    prozor.txtTrajanjeTermin.Text = citac["Trajanje"].ToString();
+                }
+                prozor.ShowDialog();
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("Niste selektovali red", "Obavestenje", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            finally
+            {
+                if (konekcija != null)
+                    konekcija.Close();
+                PocetniDataGrid(dataGridCentralni);
+                azuziraj = false;
+            }
         }
 
         private void btnIzmeniTrening_Click(object sender, RoutedEventArgs e)
@@ -556,7 +673,41 @@ namespace WPF_Teretana
 
         private void btnIzmeniSpravu_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                azuziraj = true;
+                frmSprava prozor = new frmSprava();
+                konekcija.Open();
 
+                DataRowView red = (DataRowView)dataGridCentralni.SelectedItems[0];
+
+                pomocni = red;
+
+                string upit = "SELECT * FROM tblSprava WHERE SpravaID =" + red["ID"];
+
+                SqlCommand komanda = new SqlCommand(upit, konekcija);
+
+                SqlDataReader citac = komanda.ExecuteReader();
+
+                while (citac.Read())
+                {
+                    //NazivSprave, Kolicina
+                    prozor.txtNazivSprava.Text = citac["NazivSprave"].ToString();
+                    prozor.txtKolicinaSprava.Text = citac["Kolicina"].ToString();
+                }
+                prozor.ShowDialog();
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("Niste selektovali red", "Obavestenje", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            finally
+            {
+                if (konekcija != null)
+                    konekcija.Close();
+                PocetniDataGrid(dataGridCentralni);
+                azuziraj = false;
+            }
         }
 
         private void btnIzmeniRegistraciju_Click(object sender, RoutedEventArgs e)

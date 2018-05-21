@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -33,11 +34,26 @@ namespace WPF_Teretana.Forme
             {
                 konekcija.Open();
 
-                string insert = @"INSERT INTO tblKorisnik(ImeK, PrezimeK, DatumRodjenjaK, JMBGK, AdresaK, GradK, KontaktK, EmailK, KorisnickoIme, Lozinka)
+                if (MainWindow.azuziraj)
+                {
+                    DataRowView red = (DataRowView)MainWindow.pomocni;
+
+                    string upit = @"UPDATE tblKorisnik 
+                            SET ImeK='" + txtImeKorisnik.Text + "', PrezimeK='" + txtPrezimeKorisnik.Text + "',DatumRodjenjaK='" + dpDatumKorisnik.SelectedDate + "', JMBGK='" + txtJMBGKorisnik.Text + "', AdresaK='" + txtAdresaKorisnik.Text + "', GradK='" + txtGradKorisnik.Text + "', KontaktK='" + txtKontaktKorisnik.Text + "', EmailK='" + txtEmailKorisnik.Text + "', KorisnickoIme='" + txtKorisnickoImeKorisnik.Text + "', Lozinka='" + txtLozinkaKorisnik.Text + "' Where KorisnikID=" + red["ID"];
+
+                    SqlCommand komanda = new SqlCommand(upit, konekcija);
+                    komanda.ExecuteNonQuery();
+                    MainWindow.pomocni = null;
+                    this.Close();
+                }
+                else
+                {
+                    string insert = @"INSERT INTO tblKorisnik(ImeK, PrezimeK, DatumRodjenjaK, JMBGK, AdresaK, GradK, KontaktK, EmailK, KorisnickoIme, Lozinka)
 	                            VALUES('" + txtImeKorisnik.Text + "', '" + txtPrezimeKorisnik.Text + "', '" + dpDatumKorisnik.SelectedDate + "', '" + txtJMBGKorisnik.Text + "', '" + txtAdresaKorisnik.Text + "', '" + txtGradKorisnik.Text + "', '" + txtKontaktKorisnik.Text + "', '" + txtEmailKorisnik.Text + "', '" + txtKorisnickoImeKorisnik.Text + "', '" + txtLozinkaKorisnik.Text + "');";
-                SqlCommand cmd = new SqlCommand(insert, konekcija);
-                cmd.ExecuteNonQuery();
-                this.Close();
+                    SqlCommand cmd = new SqlCommand(insert, konekcija);
+                    cmd.ExecuteNonQuery();
+                    this.Close();
+                }
             }
             catch (SqlException)
             {

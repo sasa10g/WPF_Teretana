@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -33,11 +34,26 @@ namespace WPF_Teretana.Forme
             {
                 konekcija.Open();
 
-                string insert = @"INSERT INTO tblClan(ImeC, PrezimeC, DatumRodjenjaC, JMBGC, AdresaC, GradC, KontaktC, EmailC)
+                if (MainWindow.azuziraj)
+                {
+                    DataRowView red = (DataRowView)MainWindow.pomocni;
+
+                    string upit = @"UPDATE tblClan 
+                            SET ImeC='" + txtImeClan.Text + "', PrezimeC='" + txtPrezimeClan.Text + "',DatumRodjenjaC='" + dpDatumClan.SelectedDate + "', JMBGC='" + txtJMBGClan.Text + "', AdresaC='" + txtAdresaClan.Text + "', GradC='" + txtGradClan.Text + "', KontaktC='" + txtKontaktClan.Text + "', EmailC='" + txtEmailClan.Text + "' Where ClanID=" + red["ID"];
+
+                    SqlCommand komanda = new SqlCommand(upit, konekcija);
+                    komanda.ExecuteNonQuery();
+                    MainWindow.pomocni = null;
+                    this.Close();
+                }
+                else
+                {
+                    string insert = @"INSERT INTO tblClan(ImeC, PrezimeC, DatumRodjenjaC, JMBGC, AdresaC, GradC, KontaktC, EmailC)
 	                            VALUES('" + txtImeClan.Text + "', '" + txtPrezimeClan.Text + "', '" + dpDatumClan.SelectedDate + "', '" + txtJMBGClan.Text + "', '" + txtAdresaClan.Text + "', '" + txtGradClan.Text + "', '" + txtKontaktClan.Text + "', '" + txtEmailClan.Text + "');";
-                SqlCommand cmd = new SqlCommand(insert, konekcija);
-                cmd.ExecuteNonQuery();
-                this.Close();
+                    SqlCommand cmd = new SqlCommand(insert, konekcija);
+                    cmd.ExecuteNonQuery();
+                    this.Close();
+                }
             }
             catch (SqlException)
             {
